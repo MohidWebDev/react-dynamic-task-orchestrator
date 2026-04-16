@@ -1,74 +1,90 @@
+import { useState } from "react";
+
 function App() {
+  const [counter, setCounter] = useState(0);
+  const [newCounter, setNewCounter] = useState(0);
+  const [obtainedMarks, setObtainedMarks] = useState(0);
+  const [totalMarks, setTotalMarks] = useState(0);
+  const [percentage, setPercentage] = useState(0);
+
+  function calculatePercentage(e) {
+    e.preventDefault();
+
+    const userPercentage = (obtainedMarks / totalMarks) * 100;
+    setPercentage(userPercentage);
+  }
+
   return (
     <div>
-      <h1>My React App</h1>
+      <div>
+        <h1>Counter App & Percentage Calculator</h1>
+      </div>
 
-      <form>
-        <input
-          type="text"
-          name="first-name"
-          id="first-name"
-          placeholder="Enter Your First Name"
-        />
+      <div>
+        <button
+          onClick={() => {
+            setCounter(counter + 1);
+          }}
+        >
+          Increment
+        </button>
+        <div>
+          <h2>{counter}</h2>
+        </div>
+        <button
+          onClick={() => {
+            setCounter(counter - 1);
+          }}
+        >
+          Decrement
+        </button>
+      </div>
 
-        <br />
+      <div>
+        <button
+          onClick={() => {
+            setNewCounter(newCounter + 50);
+          }}
+        >
+          Increment +50
+        </button>
+        <div>
+          <h2>{newCounter}</h2>
+        </div>
+        <button
+          onClick={() => {
+            setNewCounter(newCounter - 50);
+          }}
+        >
+          Decrement -50
+        </button>
+      </div>
 
-        <input
-          type="text"
-          name="last-name"
-          id="last-name"
-          placeholder="Enter Your Last Name"
-        />
+      <div>
+        <form onSubmit={calculatePercentage}>
+          <input
+            type="number"
+            name="obtained-marks"
+            id="obtained-marks"
+            placeholder="Enter Obtained Marks"
+            onChange={(e) => {
+              setObtainedMarks(Number(e.target.value));
+            }}
+          />
+          <input
+            type="number"
+            name="total-marks"
+            id="total-marks"
+            placeholder="Enter Total Marks"
+            onChange={(e) => {
+              setTotalMarks(Number(e.target.value));
+            }}
+          />
+          <button type="submit">Calculate</button>
+        </form>
 
-        <br />
-
-        <input
-          type="number"
-          name="phone-number"
-          id="phone-number"
-          placeholder="Enter Your Phone Number"
-        />
-
-        <br />
-
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Enter Your Email ID"
-        />
-      </form>
-
-      <br />
-
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/CP1wdSs81c8?si=Z5XiSvH8G72939Pl"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/NSu-QVtpvIc?si=stMyWS52fB2tIn3W"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-
-      <img
-        src="/steam_engine.png"
-        alt="Steam engine running on the track"
-        height={150}
-        width={300}
-      />
+        <div>Your calculated percentage is {percentage}%</div>
+      </div>
     </div>
   );
 }
