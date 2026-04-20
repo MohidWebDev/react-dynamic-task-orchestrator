@@ -1,10 +1,12 @@
-# my-first-react-app-vite
-Vite Starter Basics: Demonstrates how to set up a lightweight development environment using Vite and navigate the default React project structure.
+# react-dynamic-task-orchestrator
+Complete CRUD Lifecycle: Demonstrates the ability to not just create and delete, but also Update existing state objects—a critical skill for managing dynamic databases in the MERN stack.
 
-Introduction to JSX: Clear implementation of JavaScript XML (JSX) to create standard HTML elements like headers, forms, and line breaks within a JavaScript file.
+Multi-Level Component Communication: Effectively coordinates data between App.jsx, AddToDo, DeleteToDo, and EditToDo. This highlights a deep understanding of React’s unidirectional data flow.
 
-Basic Form Layout: A simple, clean implementation of a registration form featuring common input types such as text, number, and email.
+Advanced State Transformation: Uses high-order array methods (.map() and .filter()) to perform immutable updates. The conditional logic within handleEditToDo ensures data integrity while modifying specific array indices.
 
-Video Embedding: Shows how to use the iframe tag within a React component to pull in external media, handling basic attributes for scaling and full-screen playback.
+Conditional UI Rendering: Features a seamless toggle between "Viewing" and "Editing" modes within the DeleteToDo component, providing a clean and intuitive user experience without page refreshes.
 
-Component Fundamentals: A solid example of a "Functional Component" where all the UI logic is contained in a single, readable App() function.
+Refined UX/UI Design: Implements a professional dark-themed aesthetic with a specialized "Inter" font stack. Includes advanced CSS interactions like autoFocus for input fields and smooth transition effects on buttons.
+
+Defensive Programming: Incorporates input sanitization (using .trim()) to prevent the creation of empty or whitespace-only tasks.
